@@ -1,6 +1,6 @@
 # BI Scripts for Pendulum/Amplitude
 
-This repository contains scripts and tools for determining different statistics about Pendulum or Amplitude
+This repository contains scripts and tools for determining different statistics about Pendulum or Amplitude.
 
 ## Total Issuance
 
@@ -21,3 +21,14 @@ node totalIssuance.js
 ```
 
 You can run `node totalIssuance.js amplitude` in order to determine issuances on Amplitude instead of Pendulum.
+
+### Example output
+
+```
+Determine issuance on Pendulum ...
+
+Total issuance: 160,007,535.972 PEN
+Total transferable (in circulation): 34,987,389.809 PEN
+Total locked: 125,020,080.237 PEN
+Total reserved: 65.925 PEN
+```

@@ -21,9 +21,15 @@ const websocketUrls = {
   Pendulum: "wss://rpc-pendulum.prd.pendulumchain.tech",
 };
 
+const tokenNames = {
+  Amplitude: "AMPE",
+  Pendulum: "PEN",
+};
+
 async function main() {
   const network = process.argv[2] == "amplitude" ? "Amplitude" : "Pendulum";
-  const websocketUrl = websocketUrls[network] ?? websocketUrls.pendulum;
+  const websocketUrl = websocketUrls[network];
+  const tokenName = tokenNames[network];
 
   console.log(`Determine issuance on ${network} ...`);
 
@@ -62,10 +68,10 @@ async function main() {
     return str;
   };
 
-  console.log("\nTotal issuance:", format(totalIssuance));
-  console.log("Total transferable (in circulation):", format(totalTransferable));
-  console.log("Total locked:", format(totalLocked));
-  console.log("Total reserved:", format(totalReserved));
+  console.log(`\nTotal issuance: ${format(totalIssuance)} ${tokenName}`);
+  console.log(`Total transferable (in circulation): ${format(totalTransferable)} ${tokenName}`);
+  console.log(`Total locked: ${format(totalLocked)} ${tokenName}`);
+  console.log(`Total reserved: ${format(totalReserved)} ${tokenName}`);
 
   process.exit();
 }
